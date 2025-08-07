@@ -1,7 +1,7 @@
 #![allow(warnings)]
 
-use std::fs::File;
-use std::io::{self, BufRead};
+use crate::utilities::read_lines;
+
 use std::path::Path;
 use std::collections::{BinaryHeap, HashMap};
 use std::cmp::{Ordering, Reverse};
@@ -55,10 +55,4 @@ where P: AsRef<Path>, {
         };
     }
     println!("AOC#2: {similarity_score}");
-}
-
-fn read_lines<P>(filename: P) -> io::Result<io::Lines<io::BufReader<File>>>
-where P: AsRef<Path>, {
-    let file = File::open(filename)?;
-    Ok(io::BufReader::new(file).lines())
 }
